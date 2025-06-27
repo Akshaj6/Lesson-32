@@ -7,13 +7,14 @@ PLAYER_START_X = 370
 PLAYER_START_Y = 380
 ENEMY_START_Y_MIN = 50
 ENEMY_START_Y_MAX = 150
-ENEMY_SPEED_X = 4
-ENEMY_SPEED_Y = 4
+ENEMY_SPEED_X = 0.35
+ENEMY_SPEED_Y = 0.35
 BULLET_SPEED_Y = 10
 COLLISION_DISTANCE = 27
 pygame.init()
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 background = pygame.image.load('background.jfif')
+background = pygame.transform.scale(background, (800, 800))
 pygame.display.set_caption("Space Invader")
 playerimg = pygame.image.load('spaceship.png')
 playerimg = pygame.transform.scale(playerimg, (30, 30))
@@ -47,7 +48,7 @@ textY = 10
 over_font = pygame.font.Font('freesansbold.ttf', 64)
 def show_score(x, y):
     score = font.render("Score : " + str(score_value), True, (225, 225, 225))
-    screen.blit(score, (200, 250))
+    screen.blit(score, (20, 20))
 def game_over_text():
     over_font = over_font.render("GAME OVER", True, (255, 255, 255))
     screen.blit(over_font, (200, 250))
