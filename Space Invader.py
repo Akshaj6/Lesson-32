@@ -36,6 +36,7 @@ for _i in range(num_of_enemies):
     enemyY_change.append(ENEMY_SPEED_Y)
     enemyX_change.append(ENEMY_SPEED_X)
 bulletimg = pygame.image.load('bullet.png')
+bulletimg = pygame.transform.scale(bulletimg, (15, 15))
 bulletx = 0
 bullety = PLAYER_START_Y
 bulletx_change = 0
@@ -56,7 +57,7 @@ def player(x, y):
     screen.blit(playerimg, (x, y))
 def enemy(x, y, i):
     screen.blit(enemyimg[i], (x, y))
-def fire_bullet():
+def fire_bullet(x, y):
     global bullet_state
     bullet_state = "fire"
     screen.blit(bulletimg, (x + 16, y + 10))
